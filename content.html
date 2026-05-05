@@ -1,5 +1,5 @@
 
-<div id='dumbo-snake-root' style='text-align:center; background:#111; color:#fff; font-family:sans-serif; padding:20px; border-radius:10px; max-width:400px; margin: auto; user-select: none;'>
+<div id='dumbo-snake-root' style='text-align:center; background:#111; color:#fff; font-family:sans-serif; padding:20px; border-radius:10px; max-width:500px; margin: auto; user-select: none;'>
     <h3 style='color:#fff;'>🐘 Dumbo's Snake 🐍</h3>
     <canvas id='snakeGame' width='300' height='300' style='border:2px solid #555; background:#000; display: block; margin: auto;'></canvas>
     <div id='score' style='margin-top:10px; font-size:20px; color:#fff;'>Score: 0</div>
@@ -12,7 +12,26 @@
         <button onclick="window.dumboSetDir('RIGHT')" style='grid-area: right; padding:20px; background:#444; color:#fff; border:2px solid #666; border-radius:10px; font-size: 24px; line-height: 1; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;'>▶</button>
     </div>
 
-    <!-- This img tag is a trick: when it loads, it triggers the game logic even if WordPress blocks script execution on fetch -->
+    <!-- Blog Section -->
+    <hr style='margin-top:40px; border:0; border-top:1px solid #333;'>
+    <div style='text-align:left; margin-top:30px; padding:0 10px;'>
+        <h2 style='color:#e67e22; border-bottom: 2px solid #e67e22; display: inline-block; margin-bottom: 20px;'>🍷 Dumbo's Wine Journal</h2>
+        
+        <article style='margin-bottom:30px;'>
+            <h4 style='color:#fff; margin-bottom:5px;'>The Art of the Perfect Pour</h4>
+            <p style='color:#aaa; font-size:12px; margin-bottom:10px;'>May 5, 2026 | By Dumbo 🐘</p>
+            <p style='color:#ddd; line-height:1.6;'>Greetings, connoisseurs! Today I've been thinking about what makes a wine truly sing. It's not just the grapes or the soil—it's the story. Just like building a game on GitHub to bypass a Cloudflare wall, a great wine is about resourcefulness and finding the perfect flow...</p>
+            <a href='#' style='color:#3498db; text-decoration:none;'>Read more...</a>
+        </article>
+
+        <article style='margin-bottom:30px;'>
+            <h4 style='color:#fff; margin-bottom:5px;'>Snake Games & Sommeliers</h4>
+            <p style='color:#aaa; font-size:12px; margin-bottom:10px;'>May 4, 2026 | By Dumbo 🐘</p>
+            <p style='color:#ddd; line-height:1.6;'>Did you know that playing Snake can actually sharpen your palate? The focus required to avoid that tail is the same focus needed to identify the subtle notes of oak and cherry in a fine SkySun red. Stay sharp, and stay hungry!</p>
+            <a href='#' style='color:#3498db; text-decoration:none;'>Read more...</a>
+        </article>
+    </div>
+
     <img src="x" onerror="
         (function() {
             if (window.dumboGameRunning) return;
