@@ -1,5 +1,5 @@
 
-<!-- Skysun Vintage Immersive UI - Production Version -->
+<!-- Skysun Vintage Immersive UI - Production Version with Linked Images -->
 <div class="skysun-vintage-root">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
@@ -57,7 +57,7 @@
 
         .skysun-card:hover { transform: translateY(-10px); }
 
-        .skysun-card-img { width: 100%; height: 200px; background-size: cover; background-position: center; }
+        .skysun-card-img { width: 100%; height: 220px; background-size: cover; background-position: center; }
 
         .skysun-card-content { padding: 25px; flex-grow: 1; }
         .skysun-card-date { color: var(--gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: block; }
@@ -77,13 +77,14 @@
         }
 
         #skysun-article-wrap {
-            max-width: 800px;
+            max-width: 850px;
             margin: 50px auto;
             background: white;
-            padding: 50px;
+            padding: 0;
             border-radius: 15px;
             position: relative;
             animation: skysunSlideUp 0.4s ease;
+            overflow: hidden;
         }
 
         @keyframes skysunSlideUp {
@@ -92,22 +93,32 @@
         }
 
         #skysun-close {
-            position: sticky;
-            top: 10px;
-            float: right;
-            background: var(--bordeaux);
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(74, 14, 14, 0.8);
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 5px;
             cursor: pointer;
             font-weight: 600;
             z-index: 10001;
+            transition: background 0.3s;
         }
+        #skysun-close:hover { background: #4A0E0E; }
 
-        .skysun-full h1 { font-family: 'Playfair Display', serif; color: var(--bordeaux); font-size: 2.5rem; margin-top: 20px; }
-        .skysun-full p { line-height: 1.8; font-size: 1.1rem; margin-bottom: 25px; }
-        .skysun-full img { width: 100%; border-radius: 10px; margin: 20px 0; }
+        .skysun-full-header-img { width: 100%; height: 350px; background-size: cover; background-position: center; }
+        .skysun-full-body { padding: 40px 60px; }
+        .skysun-full h1 { font-family: 'Playfair Display', serif; color: var(--bordeaux); font-size: 2.8rem; margin: 10px 0 30px 0; }
+        .skysun-full p { line-height: 1.8; font-size: 1.15rem; margin-bottom: 25px; color: #444; }
+        .skysun-full h3 { color: var(--bordeaux); font-family: 'Playfair Display', serif; font-size: 1.6rem; margin-top: 40px; }
+        
+        @media (max-width: 768px) {
+            .skysun-full-body { padding: 25px; }
+            .skysun-full h1 { font-size: 2rem; }
+            .skysun-article-wrap { margin: 0; border-radius: 0; }
+        }
     </style>
 
     <div class="skysun-header">
@@ -116,9 +127,9 @@
     </div>
 
     <div class="skysun-grid">
-        <!-- Post 1 -->
+        <!-- Post 1: Flavor Revolution -->
         <div class="skysun-card" onclick="skysunOpen('flavor')">
-            <div class="skysun-card-img" style="background-image: url('https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=800');"></div>
+            <div class="skysun-card-img" style="background-image: url('https://images.unsplash.com/photo-1553120158-621e17746a41?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="skysun-card-content">
                 <span class="skysun-card-date">May 6, 2026 • 5 Min Read</span>
                 <h2 class="skysun-card-title">Beyond Tradition: The Flavor Revolution</h2>
@@ -127,9 +138,9 @@
             </div>
         </div>
 
-        <!-- Post 2 -->
+        <!-- Post 2: The Art of Wine Tasting -->
         <div class="skysun-card" onclick="skysunOpen('tasting')">
-            <div class="skysun-card-img" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=800');"></div>
+            <div class="skysun-card-img" style="background-image: url('https://images.unsplash.com/photo-1510850477540-13456ef77ad5?auto=format&fit=crop&q=80&w=800');"></div>
             <div class="skysun-card-content">
                 <span class="skysun-card-date">May 5, 2026 • 4 Min Read</span>
                 <h2 class="skysun-card-title">The Art of Wine Tasting</h2>
@@ -145,8 +156,8 @@
 
     <div id="skysun-overlay">
         <div id="skysun-article-wrap">
-            <button id="skysun-close" onclick="skysunClose()">✕ Close & Return</button>
-            <div id="skysun-article-data" class="skysun-full"></div>
+            <button id="skysun-close" onclick="skysunClose()">✕ Close</button>
+            <div id="skysun-article-data"></div>
         </div>
     </div>
 
@@ -155,11 +166,11 @@
             flavor: {
                 title: "Beyond Tradition: The Flavor Revolution Reshaping the Wine Industry",
                 date: "May 6, 2026",
+                image: "https://images.unsplash.com/photo-1553120158-621e17746a41?auto=format&fit=crop&q=80&w=1200",
                 content: `
                     <p>The global wine landscape is currently witnessing one of its most fascinating shifts in decades. As we move through 2026, the industry is buzzing with a trend that was once considered "taboo" by traditionalists but is now a major engine of growth: the rise of <strong>flavored and botanical-infused wines</strong>.</p>
-                    <img src="https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=1200" />
                     <h3>A New Generation of Taste</h3>
-                    <p>Recent market data shows that while overall wine consumption has faced economic headwinds, the category of flavored wines is surging. Younger demographics—Millennials and Gen Z—are moving away from the complex, often intimidating tannins of high-alcohol vintages.</p>
+                    <p>Recent market data shows that while overall wine consumption has faced economic headwinds, the category of flavored wines is surging. Younger demographics—Millennials and Gen Z—are moving away from the complex, often intimidating tannins of high-alcohol vintages toward approachable, expressive profiles that highlight fruit and herbs.</p>
                     <h3>Why Now?</h3>
                     <p>Several factors are driving this "Flavor Revolution":</p>
                     <ul>
@@ -168,15 +179,15 @@
                         <li><strong>Versatility:</strong> These wines are breaking out into casual social settings and cocktails.</li>
                     </ul>
                     <h3>The Verdict</h3>
-                    <p>While the classic Cabernet Sauvignon and Chardonnay will always have its place, the definition of a "premium wine experience" is expanding. The industry is becoming more inclusive, creative, and responsive to the palate of the modern consumer.</p>
+                    <p>While the classic Cabernet Sauvignon and Chardonnay will always have its place in the cellar, the "Interesting News" for 2026 is clear: the definition of what constitutes a "premium wine experience" is expanding. The industry is becoming more inclusive, creative, and responsive to the modern consumer.</p>
                 `
             },
             tasting: {
                 title: "The Art of Wine Tasting: A Journey Through the Senses",
                 date: "May 5, 2026",
+                image: "https://images.unsplash.com/photo-1510850477540-13456ef77ad5?auto=format&fit=crop&q=80&w=1200",
                 content: `
                     <p>Wine tasting is more than just drinking; it is an exploration of culture, geography, and history. To truly appreciate a fine vintage, one must engage all the senses.</p>
-                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=1200" />
                     <h3>1. Look: The Appearance</h3>
                     <p>Begin by tilting your glass against a white background. The color can tell you much about the age and grape variety. A deep garnet might suggest an older red, while a pale straw hue often indicates a crisp, young white wine.</p>
                     <h3>2. Smell: The Bouquet</h3>
@@ -184,7 +195,7 @@
                     <h3>3. Taste: The Palate</h3>
                     <p>Take a small sip and let it coat your mouth. Consider the acidity, tannin, and body. A balanced wine harmonizes these elements, leading to a lingering, pleasant finish.</p>
                     <h3>The Finish</h3>
-                    <p>The "finish" is the duration and quality of the aftertaste. In premium wines, this experience can last for several minutes, evolving as it fades. Tasting is a personal journey. There are no wrong answers—only the discovery of what you enjoy most. Cheers!</p>
+                    <p>The "finish" is the duration and quality of the aftertaste. In premium wines, this experience can last for several minutes, evolving as it fades. Tasting is a personal journey. Cheers!</p>
                 `
             }
         };
@@ -192,9 +203,12 @@
         function skysunOpen(id) {
             const article = skysunArticles[id];
             document.getElementById('skysun-article-data').innerHTML = `
-                <span style="color:#D4AF37; font-weight:600; text-transform:uppercase;">${article.date}</span>
-                <h1>${article.title}</h1>
-                <div>${article.content}</div>
+                <div class="skysun-full-header-img" style="background-image: url('${article.image}')"></div>
+                <div class="skysun-full-body skysun-full">
+                    <span style="color:#D4AF37; font-weight:600; text-transform:uppercase;">${article.date}</span>
+                    <h1>${article.title}</h1>
+                    <div>${article.content}</div>
+                </div>
             `;
             document.getElementById('skysun-overlay').style.display = 'block';
             document.body.style.overflow = 'hidden';
