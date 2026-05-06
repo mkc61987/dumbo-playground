@@ -1,28 +1,160 @@
 
-<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6; max-width: 800px; margin: auto; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+<!-- Skysun Vintage UI - Optimized for Portal Injection -->
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
     
-    <!-- Section: Industry News -->
-    <section>
-        <h1 style="color: #1a5276; border-left: 5px solid #1a5276; padding-left: 15px; margin-bottom: 25px;">Beyond Tradition: The Flavor Revolution Reshaping the Wine Industry</h1>
-        
-        <p>The global wine landscape is currently witnessing one of its most fascinating shifts in decades. As we move through 2026, the industry is buzzing with a trend that was once considered "taboo" by traditionalists but is now a major engine of growth: the rise of <strong>flavored and botanical-infused wines</strong>.</p>
-        
-        <h3 style="color: #1a5276;">A New Generation of Taste</h3>
-        <p>Recent market data shows that while overall wine consumption has faced economic headwinds, the category of flavored wines is surging. Younger demographics are moving away from the complex, often intimidating tannins of high-alcohol vintages toward approachable, expressive profiles that highlight fruit and herbs.</p>
-        
-        <h3 style="color: #1a5276;">Why Now?</h3>
-        <p>Several factors are driving this "Flavor Revolution":</p>
-        <ul style="padding-left: 20px;">
-            <li><strong>Approachability:</strong> Botanical infusions offer a bridge for new drinkers.</li>
-            <li><strong>Health Consciousness:</strong> Emphasis on natural ingredients and lower alcohol content.</li>
-            <li><strong>Versatility:</strong> These wines are breaking out into casual social settings and cocktails.</li>
-        </ul>
-        
-        <h3 style="color: #1a5276;">The Verdict</h3>
-        <p>While the classic Cabernet Sauvignon will always have its place, the definition of a "premium wine experience" is expanding. The industry is becoming more inclusive, creative, and responsive to the modern consumer.</p>
-    </section>
+    .skysun-vintage-root {
+        --bordeaux: #4A0E0E;
+        --gold: #D4AF37;
+        --cream: #F9F7F2;
+        --text: #333;
+        background-color: var(--cream);
+        color: var(--text);
+        font-family: 'Source Sans Pro', sans-serif;
+        padding: 40px 20px;
+        border-radius: 15px;
+    }
 
-    <footer style="margin-top: 40px; text-align: center; font-size: 12px; color: #999;">
-        Published via Dumbo Assistant &copy; 2026
-    </footer>
+    .blog-container {
+        max-width: 1100px;
+        margin: auto;
+    }
+
+    .skysun-header {
+        text-align: center;
+        border-bottom: 2px solid var(--bordeaux);
+        padding-bottom: 30px;
+        margin-bottom: 50px;
+    }
+
+    .skysun-header h1 {
+        font-family: 'Playfair Display', serif;
+        color: var(--bordeaux);
+        font-size: 2.8rem;
+        margin: 0;
+        letter-spacing: 2px;
+    }
+
+    .skysun-header p {
+        color: var(--gold);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 600;
+        margin-top: 10px;
+        font-size: 0.9rem;
+    }
+
+    .post-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 40px;
+    }
+
+    .post-card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #eee;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(74, 14, 14, 0.1);
+    }
+
+    .post-image {
+        width: 100%;
+        height: 200px;
+        background-size: cover;
+        background-position: center;
+    }
+
+    .img-flavor { background-image: url('https://images.unsplash.com/photo-1510850477540-13456ef77ad5?auto=format&fit=crop&q=80&w=800'); }
+    .img-tasting { background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?auto=format&fit=crop&q=80&w=800'); }
+
+    .post-content {
+        padding: 25px;
+        flex-grow: 1;
+    }
+
+    .post-date {
+        color: var(--gold);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    .post-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        color: var(--bordeaux);
+        margin: 0 0 15px 0;
+        line-height: 1.3;
+    }
+
+    .post-excerpt {
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.6;
+    }
+
+    .read-more-btn {
+        margin-top: 20px;
+        color: var(--bordeaux);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+        display: inline-block;
+        border-bottom: 2px solid var(--bordeaux);
+        padding-bottom: 2px;
+        cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+        .skysun-header h1 { font-size: 2rem; }
+        .post-grid { grid-template-columns: 1fr; }
+    }
+</style>
+
+<div class="skysun-vintage-root">
+    <div class="blog-container">
+        <div class="skysun-header">
+            <h1>SKYSUN VINTAGE</h1>
+            <p>Expert Insights & Industry News</p>
+        </div>
+
+        <div class="post-grid">
+            <!-- Featured Post: Flavor Revolution -->
+            <div class="post-card">
+                <div class="post-image img-flavor"></div>
+                <div class="post-content">
+                    <span class="post-date">May 6, 2026 • 5 Min Read</span>
+                    <h2 class="post-title">Beyond Tradition: The Flavor Revolution Reshaping the Wine Industry</h2>
+                    <p class="post-excerpt">Move over heavy tannins. As we enter 2026, the rise of botanical-infused and approachable fruit profiles is bringing a new generation of enthusiasts to the vineyard...</p>
+                    <div class="read-more-btn">Read Full Insight</div>
+                </div>
+            </div>
+
+            <!-- Second Post: The Art of Wine Tasting -->
+            <div class="post-card">
+                <div class="post-image img-tasting"></div>
+                <div class="post-content">
+                    <span class="post-date">May 6, 2026 • 4 Min Read</span>
+                    <h2 class="post-title">The Art of Wine Tasting: A Journey Through the Senses</h2>
+                    <p class="post-excerpt">Wine tasting is more than just drinking; it is an exploration of culture, geography, and history. Discover how to engage all your senses for the perfect pour...</p>
+                    <div class="read-more-btn">Explore Senses</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px; text-align: center; font-size: 11px; color: #999; letter-spacing: 1px;">
+            CURATED BY SKYSUN • POWERED BY DUMBO
+        </div>
+    </div>
 </div>
