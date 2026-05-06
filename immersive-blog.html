@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
+        
+        :root {
+            --bordeaux: #4A0E0E;
+            --gold: #D4AF37;
+            --cream: #F9F7F2;
+            --text: #333;
+            --overlay: rgba(0,0,0,0.85);
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text);
+            font-family: 'Source Sans Pro', sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+        }
+
+        .blog-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--bordeaux);
+            padding-bottom: 30px;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--bordeaux);
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .post-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .post-content { padding: 25px; flex-grow: 1; }
+        .post-date { color: var(--gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .post-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--bordeaux); margin: 0 0 15px 0; }
+        .read-more-btn { color: var(--bordeaux); font-weight: 600; font-size: 0.9rem; border-bottom: 2px solid var(--bordeaux); padding-bottom: 2px; }
+
+        /* Full Article Overlay */
+        #article-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--overlay);
+            display: none;
+            z-index: 1000;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        #article-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        #close-btn {
+            position: sticky;
+            top: 0;
+            float: right;
+            background: var(--bordeaux);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 1001;
+        }
+
+        .full-article-content h1 { font-family: 'Playfair Display', serif; color: var(--bordeaux); font-size: 2.5rem; }
+        .full-article-content p { line-height: 1.8; font-size: 1.1rem; margin-bottom: 25px; }
+        .full-article-content img { width: 100%; border-radius: 10px; margin: 20px 0; }
+    </style>
+</head>
+<body>
+
+<div class="blog-container">
+    <header>
+        <h1>SKYSUN VINTAGE</h1>
+        <p style="color:var(--gold); letter-spacing:4px; font-weight:600; text-transform:uppercase;">The Immersive Wine Experience</p>
+    </header>
+
+    <div class="post-grid">
+        <!-- Post 1 -->
+        <article class="post-card" onclick="openArticle('flavor')">
+            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=800');"></div>
+            <div class="post-content">
+                <span class="post-date">May 6, 2026 • 5 Min Read</span>
+                <h2 class="post-title">Beyond Tradition: The Flavor Revolution</h2>
+                <p style="color:#666; font-size:0.95rem;">Exploring the surge of botanical-infused and approachable lower-alcohol wines...</p>
+                <span class="read-more-btn">Read Full Insight</span>
+            </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="post-card" onclick="openArticle('tasting')">
+            <div class="post-image" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=800');"></div>
+            <div class="post-content">
+                <span class="post-date">May 5, 2026 • 4 Min Read</span>
+                <h2 class="post-title">The Art of Wine Tasting</h2>
+                <p style="color:#666; font-size:0.95rem;">A sensory journey through the look, smell, and palate of fine vintages...</p>
+                <span class="read-more-btn">Explore Senses</span>
+            </div>
+        </article>
+    </div>
+</div>
+
+<!-- Overlay Structure -->
+<div id="article-overlay">
+    <div id="article-container">
+        <button id="close-btn" onclick="closeArticle()">✕ Close & Return</button>
+        <div id="article-data" class="full-article-content"></div>
+    </div>
+</div>
+
+<script>
+    const articles = {
+        flavor: {
+            title: "Beyond Tradition: The Flavor Revolution Reshaping the Wine Industry",
+            date: "May 6, 2026",
+            image: "https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=1200",
+            content: `
+                <p>The global wine landscape is currently witnessing one of its most fascinating shifts in decades. As we move through 2026, the industry is buzzing with a trend that was once considered "taboo" by traditionalists but is now a major engine of growth: the rise of <strong>flavored and botanical-infused wines</strong>.</p>
+                <img src="https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=1200" />
+                <h3>A New Generation of Taste</h3>
+                <p>Recent market data shows that while overall wine consumption has faced economic headwinds, the category of flavored wines is surging. Younger demographics—Millennials and Gen Z—are moving away from the complex, often intimidating tannins of high-alcohol vintages.</p>
+                <h3>The Verdict</h3>
+                <p>While the classic Cabernet Sauvignon and Chardonnay will always have their place in the cellar, the "Interesting News" for 2026 is clear: the definition of what constitutes a "premium wine experience" is expanding. The industry is becoming more inclusive, creative, and responsive to the palate of the modern consumer.</p>
+            `
+        },
+        tasting: {
+            title: "The Art of Wine Tasting: A Journey Through the Senses",
+            date: "May 5, 2026",
+            image: "https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=1200",
+            content: `
+                <p>Wine tasting is more than just drinking; it is an exploration of culture, geography, and history. To truly appreciate a fine vintage, one must engage all the senses.</p>
+                <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=1200" />
+                <h3>1. Look: The Appearance</h3>
+                <p>Begin by tilting your glass against a white background. The color can tell you much about the age and grape variety. A deep garnet might suggest an older red, while a pale straw hue often indicates a crisp, young white wine.</p>
+                <h3>2. Smell: The Bouquet</h3>
+                <p>Swirl the wine gently to release its aromas. Take a short, sharp sniff. Do you detect primary fruit notes like blackberry or citrus? Or perhaps secondary notes of vanilla and toast from oak aging?</p>
+                <h3>3. Taste: The Palate</h3>
+                <p>Take a small sip and let it coat your mouth. Consider the acidity, tannin, and body. A balanced wine harmonizes these elements, leading to a lingering, pleasant finish.</p>
+            `
+        }
+    };
+
+    function openArticle(id) {
+        const article = articles[id];
+        const dataDiv = document.getElementById('article-data');
+        dataDiv.innerHTML = `
+            <span style="color:#D4AF37; font-weight:600; text-transform:uppercase;">${article.date}</span>
+            <h1>${article.title}</h1>
+            <div>${article.content}</div>
+        `;
+        document.getElementById('article-overlay').style.display = 'block';
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+    }
+
+    function closeArticle() {
+        document.getElementById('article-overlay').style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Close on click outside
+    document.getElementById('article-overlay').addEventListener('click', function(e) {
+        if(e.target === this) closeArticle();
+    });
+</script>
+
+</body>
+</html>
