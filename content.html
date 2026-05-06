@@ -1,160 +1,212 @@
 
-<!-- Skysun Vintage UI - Optimized for Portal Injection -->
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
-    
-    .skysun-vintage-root {
-        --bordeaux: #4A0E0E;
-        --gold: #D4AF37;
-        --cream: #F9F7F2;
-        --text: #333;
-        background-color: var(--cream);
-        color: var(--text);
-        font-family: 'Source Sans Pro', sans-serif;
-        padding: 40px 20px;
-        border-radius: 15px;
-    }
-
-    .blog-container {
-        max-width: 1100px;
-        margin: auto;
-    }
-
-    .skysun-header {
-        text-align: center;
-        border-bottom: 2px solid var(--bordeaux);
-        padding-bottom: 30px;
-        margin-bottom: 50px;
-    }
-
-    .skysun-header h1 {
-        font-family: 'Playfair Display', serif;
-        color: var(--bordeaux);
-        font-size: 2.8rem;
-        margin: 0;
-        letter-spacing: 2px;
-    }
-
-    .skysun-header p {
-        color: var(--gold);
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        font-weight: 600;
-        margin-top: 10px;
-        font-size: 0.9rem;
-    }
-
-    .post-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-        gap: 40px;
-    }
-
-    .post-card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        border: 1px solid #eee;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .post-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 20px 40px rgba(74, 14, 14, 0.1);
-    }
-
-    .post-image {
-        width: 100%;
-        height: 200px;
-        background-size: cover;
-        background-position: center;
-    }
-
-    .img-flavor { background-image: url('https://images.unsplash.com/photo-1510850477540-13456ef77ad5?auto=format&fit=crop&q=80&w=800'); }
-    .img-tasting { background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?auto=format&fit=crop&q=80&w=800'); }
-
-    .post-content {
-        padding: 25px;
-        flex-grow: 1;
-    }
-
-    .post-date {
-        color: var(--gold);
-        font-size: 0.8rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        margin-bottom: 10px;
-        display: block;
-    }
-
-    .post-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.4rem;
-        color: var(--bordeaux);
-        margin: 0 0 15px 0;
-        line-height: 1.3;
-    }
-
-    .post-excerpt {
-        font-size: 0.9rem;
-        color: #666;
-        line-height: 1.6;
-    }
-
-    .read-more-btn {
-        margin-top: 20px;
-        color: var(--bordeaux);
-        font-weight: 600;
-        font-size: 0.85rem;
-        text-decoration: none;
-        display: inline-block;
-        border-bottom: 2px solid var(--bordeaux);
-        padding-bottom: 2px;
-        cursor: pointer;
-    }
-
-    @media (max-width: 600px) {
-        .skysun-header h1 { font-size: 2rem; }
-        .post-grid { grid-template-columns: 1fr; }
-    }
-</style>
-
+<!-- Skysun Vintage Immersive UI - Production Version -->
 <div class="skysun-vintage-root">
-    <div class="blog-container">
-        <div class="skysun-header">
-            <h1>SKYSUN VINTAGE</h1>
-            <p>Expert Insights & Industry News</p>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+Pro:wght@400;600&display=swap');
+        
+        .skysun-vintage-root {
+            --bordeaux: #4A0E0E;
+            --gold: #D4AF37;
+            --cream: #F9F7F2;
+            --text: #333;
+            --overlay: rgba(0,0,0,0.85);
+            background-color: var(--cream);
+            color: var(--text);
+            font-family: 'Source Sans Pro', sans-serif;
+            padding: 40px 20px;
+            min-height: 800px;
+        }
+
+        .skysun-header {
+            text-align: center;
+            border-bottom: 2px solid var(--bordeaux);
+            padding-bottom: 30px;
+            margin-bottom: 50px;
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .skysun-header h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--bordeaux);
+            font-size: 3rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .skysun-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .skysun-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+            border: 1px solid #eee;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .skysun-card:hover { transform: translateY(-10px); }
+
+        .skysun-card-img { width: 100%; height: 200px; background-size: cover; background-position: center; }
+
+        .skysun-card-content { padding: 25px; flex-grow: 1; }
+        .skysun-card-date { color: var(--gold); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .skysun-card-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--bordeaux); margin: 0 0 15px 0; }
+        .skysun-read-more { color: var(--bordeaux); font-weight: 600; font-size: 0.9rem; border-bottom: 2px solid var(--bordeaux); padding-bottom: 2px; }
+
+        /* Full Article Overlay */
+        #skysun-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: var(--overlay);
+            display: none;
+            z-index: 9999;
+            overflow-y: auto;
+            backdrop-filter: blur(5px);
+        }
+
+        #skysun-article-wrap {
+            max-width: 800px;
+            margin: 50px auto;
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            position: relative;
+            animation: skysunSlideUp 0.4s ease;
+        }
+
+        @keyframes skysunSlideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        #skysun-close {
+            position: sticky;
+            top: 10px;
+            float: right;
+            background: var(--bordeaux);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            z-index: 10001;
+        }
+
+        .skysun-full h1 { font-family: 'Playfair Display', serif; color: var(--bordeaux); font-size: 2.5rem; margin-top: 20px; }
+        .skysun-full p { line-height: 1.8; font-size: 1.1rem; margin-bottom: 25px; }
+        .skysun-full img { width: 100%; border-radius: 10px; margin: 20px 0; }
+    </style>
+
+    <div class="skysun-header">
+        <h1>SKYSUN VINTAGE</h1>
+        <p style="color:var(--gold); letter-spacing:4px; font-weight:600; text-transform:uppercase;">Expert Insights & Industry News</p>
+    </div>
+
+    <div class="skysun-grid">
+        <!-- Post 1 -->
+        <div class="skysun-card" onclick="skysunOpen('flavor')">
+            <div class="skysun-card-img" style="background-image: url('https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=800');"></div>
+            <div class="skysun-card-content">
+                <span class="skysun-card-date">May 6, 2026 • 5 Min Read</span>
+                <h2 class="skysun-card-title">Beyond Tradition: The Flavor Revolution</h2>
+                <p style="color:#666; font-size:0.95rem;">Exploring the surge of botanical-infused and approachable lower-alcohol wines...</p>
+                <span class="skysun-read-more">Read Full Insight</span>
+            </div>
         </div>
 
-        <div class="post-grid">
-            <!-- Featured Post: Flavor Revolution -->
-            <div class="post-card">
-                <div class="post-image img-flavor"></div>
-                <div class="post-content">
-                    <span class="post-date">May 6, 2026 • 5 Min Read</span>
-                    <h2 class="post-title">Beyond Tradition: The Flavor Revolution Reshaping the Wine Industry</h2>
-                    <p class="post-excerpt">Move over heavy tannins. As we enter 2026, the rise of botanical-infused and approachable fruit profiles is bringing a new generation of enthusiasts to the vineyard...</p>
-                    <div class="read-more-btn">Read Full Insight</div>
-                </div>
+        <!-- Post 2 -->
+        <div class="skysun-card" onclick="skysunOpen('tasting')">
+            <div class="skysun-card-img" style="background-image: url('https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=800');"></div>
+            <div class="skysun-card-content">
+                <span class="skysun-card-date">May 5, 2026 • 4 Min Read</span>
+                <h2 class="skysun-card-title">The Art of Wine Tasting</h2>
+                <p style="color:#666; font-size:0.95rem;">A sensory journey through the look, smell, and palate of fine vintages...</p>
+                <span class="skysun-read-more">Explore Senses</span>
             </div>
-
-            <!-- Second Post: The Art of Wine Tasting -->
-            <div class="post-card">
-                <div class="post-image img-tasting"></div>
-                <div class="post-content">
-                    <span class="post-date">May 6, 2026 • 4 Min Read</span>
-                    <h2 class="post-title">The Art of Wine Tasting: A Journey Through the Senses</h2>
-                    <p class="post-excerpt">Wine tasting is more than just drinking; it is an exploration of culture, geography, and history. Discover how to engage all your senses for the perfect pour...</p>
-                    <div class="read-more-btn">Explore Senses</div>
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-top: 50px; text-align: center; font-size: 11px; color: #999; letter-spacing: 1px;">
-            CURATED BY SKYSUN • POWERED BY DUMBO
         </div>
     </div>
+
+    <div style="margin-top: 60px; text-align: center; font-size: 11px; color: #999; letter-spacing: 1px;">
+        CURATED BY SKYSUN • POWERED BY DUMBO
+    </div>
+
+    <div id="skysun-overlay">
+        <div id="skysun-article-wrap">
+            <button id="skysun-close" onclick="skysunClose()">✕ Close & Return</button>
+            <div id="skysun-article-data" class="skysun-full"></div>
+        </div>
+    </div>
+
+    <script>
+        const skysunArticles = {
+            flavor: {
+                title: "Beyond Tradition: The Flavor Revolution Reshaping the Wine Industry",
+                date: "May 6, 2026",
+                content: `
+                    <p>The global wine landscape is currently witnessing one of its most fascinating shifts in decades. As we move through 2026, the industry is buzzing with a trend that was once considered "taboo" by traditionalists but is now a major engine of growth: the rise of <strong>flavored and botanical-infused wines</strong>.</p>
+                    <img src="https://images.unsplash.com/photo-1510850477540-13456ef77ad5?w=1200" />
+                    <h3>A New Generation of Taste</h3>
+                    <p>Recent market data shows that while overall wine consumption has faced economic headwinds, the category of flavored wines is surging. Younger demographics—Millennials and Gen Z—are moving away from the complex, often intimidating tannins of high-alcohol vintages.</p>
+                    <h3>Why Now?</h3>
+                    <p>Several factors are driving this "Flavor Revolution":</p>
+                    <ul>
+                        <li><strong>Approachability:</strong> Botanical infusions offer a bridge for new drinkers.</li>
+                        <li><strong>Health Consciousness:</strong> Emphasis on natural ingredients and lower alcohol content.</li>
+                        <li><strong>Versatility:</strong> These wines are breaking out into casual social settings and cocktails.</li>
+                    </ul>
+                    <h3>The Verdict</h3>
+                    <p>While the classic Cabernet Sauvignon and Chardonnay will always have its place, the definition of a "premium wine experience" is expanding. The industry is becoming more inclusive, creative, and responsive to the palate of the modern consumer.</p>
+                `
+            },
+            tasting: {
+                title: "The Art of Wine Tasting: A Journey Through the Senses",
+                date: "May 5, 2026",
+                content: `
+                    <p>Wine tasting is more than just drinking; it is an exploration of culture, geography, and history. To truly appreciate a fine vintage, one must engage all the senses.</p>
+                    <img src="https://images.unsplash.com/photo-1506377247377-2a5b3b0ca706?w=1200" />
+                    <h3>1. Look: The Appearance</h3>
+                    <p>Begin by tilting your glass against a white background. The color can tell you much about the age and grape variety. A deep garnet might suggest an older red, while a pale straw hue often indicates a crisp, young white wine.</p>
+                    <h3>2. Smell: The Bouquet</h3>
+                    <p>Swirl the wine gently to release its aromas. Take a short, sharp sniff. Do you detect primary fruit notes like blackberry or citrus? Or perhaps secondary notes of vanilla and toast from oak aging?</p>
+                    <h3>3. Taste: The Palate</h3>
+                    <p>Take a small sip and let it coat your mouth. Consider the acidity, tannin, and body. A balanced wine harmonizes these elements, leading to a lingering, pleasant finish.</p>
+                    <h3>The Finish</h3>
+                    <p>The "finish" is the duration and quality of the aftertaste. In premium wines, this experience can last for several minutes, evolving as it fades. Tasting is a personal journey. There are no wrong answers—only the discovery of what you enjoy most. Cheers!</p>
+                `
+            }
+        };
+
+        function skysunOpen(id) {
+            const article = skysunArticles[id];
+            document.getElementById('skysun-article-data').innerHTML = `
+                <span style="color:#D4AF37; font-weight:600; text-transform:uppercase;">${article.date}</span>
+                <h1>${article.title}</h1>
+                <div>${article.content}</div>
+            `;
+            document.getElementById('skysun-overlay').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function skysunClose() {
+            document.getElementById('skysun-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        document.getElementById('skysun-overlay').addEventListener('click', function(e) {
+            if(e.target === this) skysunClose();
+        });
+    </script>
 </div>
