@@ -1,6 +1,6 @@
 # Sassicaia: The Italian Game-Changer That Never Fades
 
-![Sassicaia Bottle](https://upload.wikimedia.org/wikipedia/commons/9/91/2003_Bolgheri_Sassicaia.jpg)
+![Sassicaia Bottle](https://images.pexels.com/photos/1123260/pexels-photo-1123260.jpeg?auto=compress&cs=tinysrgb&w=1200)
 
 Nearly 60 years after its first commercial release, Sassicaia remains the undisputed king of Tuscan wines. As the most sought-after Italian wine in 2026, it continues to capture the hearts of collectors and enthusiasts worldwide. 
 
