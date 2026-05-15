@@ -120,6 +120,22 @@
     </div>
 
     <div class="skysun-grid">
+        <!-- Post: Wine Industry Good News -->
+        <div class="skysun-card" onclick="skysunOpen('industry')">
+            <div class="skysun-card-img-wrap">
+                <img src="https://images.pexels.com/photos/1089930/pexels-photo-1089930.jpeg?auto=compress&cs=tinysrgb&w=800" 
+                     onerror="this.style.opacity='0'; this.nextElementSibling.style.opacity='1';"
+                     referrerpolicy="no-referrer">
+                <div class="skysun-img-fallback">SKYSUN VINTAGE</div>
+            </div>
+            <div class="skysun-card-content">
+                <span class="skysun-card-date">May 15, 2026 • 4 Min Read</span>
+                <h2 class="skysun-card-title">Wine Industry Finally Gets Some Good News</h2>
+                <p style="color:#666; font-size:0.95rem;">Relief from global tariffs and signs of market stabilization are providing a small blessing...</p>
+                <span class="skysun-read-more">Read Full Insight</span>
+            </div>
+        </div>
+
         <!-- Post: Sassicaia -->
         <div class="skysun-card" onclick="skysunOpen('sassicaia')">
             <div class="skysun-card-img-wrap">
@@ -182,6 +198,16 @@
 
     <script>
         const skysunArticles = {
+            industry: {
+                title: "Wine Industry Finally Gets Some Good News: A Shift in the Market",
+                date: "May 15, 2026",
+                image: "https://images.pexels.com/photos/1089930/pexels-photo-1089930.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                content: `
+                    <p>Relief from global tariffs and signs of market stabilization are finally providing a small blessing for a beleaguered wine and spirits industry. After a period of intense pressure, the "bad news is getting less bad," signaling a potential reset for wineries and vineyards worldwide.</p>
+                    <p>The recent striking down of a worldwide 10 percent tariff by the Court of International Trade is a significant victory for importers. While retail prices might not drop immediately, the removal of these financial hurdles allows distributors and retailers to enter the summer season with more confidence and less uncertainty.</p>
+                    <p>Beyond tariffs, vineyard land values are showing signs of stabilizing. For high-quality vineyards, buyers are beginning to emerge again, seeing once-in-a-lifetime opportunities in what experts are calling "The New Reality." This isn't just a decline; it's a reset that allows the industry to focus on what truly works.</p>
+                `
+            },
             sassicaia: {
                 title: "Sassicaia: The Italian Game-Changer That Never Fades",
                 date: "May 7, 2026",
